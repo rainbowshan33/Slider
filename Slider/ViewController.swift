@@ -11,9 +11,20 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
+    @IBOutlet weak var dogImage: UIImageView!
+    @IBOutlet weak var frisbeeImage: UIImageView!
+    
+    @IBAction func closerSlider(_ sender: UISlider) {
+    
+        let closervalue = sender.value * 0.75
+        dogImage.frame.origin.x = CGFloat(652 - closervalue)
+        frisbeeImage.frame.origin.x = CGFloat(60 + closervalue)
+        
+        dogImage.alpha = CGFloat(sender.value/300)
+        frisbeeImage.alpha = CGFloat(sender.value/300)
+        
+        
+    }
 }
 
